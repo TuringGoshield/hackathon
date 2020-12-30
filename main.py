@@ -25,17 +25,18 @@ while not game.is_over():
             break
         if game.is_valid(user_move):
             game.push_move(user_move)
-            bot_to_move = True 
         else:
             print( 'Move not valid try again.')
             bot_to_move = False
-    if int(num_players) <= 1:
+    if len(human_players) <= 1:
+        bot_to_move = True
         if bot_to_move:
             bot_move = game.get_move()
             if bot_move:
                 game.board.push_san(bot_move)
                 game.bot.set_fen_position(game.board.fen())
-        if int(num_players) == 1:
+        if len(human_players) == 1:
+            bot_to_move = True
             bot_to_move = False
     game.display_gameState()
 print ("good game")
