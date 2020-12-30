@@ -41,6 +41,18 @@ class game:
     def display_gameState(self):
         print (self.bot.get_board_visual())
 
+    def is_valid(self, ucimove):
+        candidate_move = chess.Move.from_uci(ucimove)
+        if candidate_move in self.board.legal_moves:
+            self.board.push(candidate_move)
+            if not self.board.is_valid():
+                self.board.pop()
+                return False
+            else:
+                self.board.pop()
+                return True
+    
+    
     def is_over(self):
         return self.board.is_game_over()
     def eval_gamestate(self):
