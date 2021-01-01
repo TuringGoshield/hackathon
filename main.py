@@ -40,14 +40,3 @@ while not game.is_over():
             bot_to_move = False
     game.display_gameState()
 print ("good game")
-"""engine = chess.engine.SimpleEngine.popen_uci("/usr/games/stockfish")
-
-board = chess.Board()
-while not board.is_game_over():
-    result = engine.play(board, chess.engine.Limit(time=0.1))
-    board.push(result.move)
-print(board)
-engine.quit()"""
-#bob = cb.bot()
-#bob.display()
-    
